@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="max-width: 700px; text-align: center; margin: 5rem auto;">
+        <div style="background: var(--card-bg); padding: 4rem 3rem; border-radius: var(--radius); box-shadow: var(--shadow-strong); border-top: 8px solid var(--secondary);">
+            <div style="width: 120px; height: 120px; background: rgba(212, 175, 55, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+                <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--secondary);"></i>
+            </div>
+            
+            <h1 class="serif-font" style="color: var(--primary); font-size: 3rem; margin-bottom: 1rem;">Order Confirmed!</h1>
+            <p style="font-size: 1.3rem; color: var(--text-light); margin-bottom: 2rem;">Thank you for trusting Gupta Cloth House.</p>
+            
+            <div style="background: var(--bg); padding: 2rem; border-radius: 8px; margin-bottom: 3rem; border: 2px dashed rgba(0,0,0,0.1);">
+                <p style="font-size: 1rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Your Order Reference ID</p>
+                <h2 style="font-family: monospace; font-size: 2.5rem; color: var(--primary); font-weight: 900;">{{ order_id }}</h2>
+            </div>
+            
+            <p style="margin-bottom: 3rem; line-height: 1.8; font-size: 1.1rem;">
+                We will prepare your order for delivery in the <b>Diargi / Balh</b> area.<br>
+                Please keep the exact amount ready for <b>Cash on Delivery</b>.
+            </p>
+            
+            <a href="/" class="btn" style="width: auto; padding: 15px 50px; font-size: 1.2rem;"><i class="fas fa-shopping-bag"></i> Continue Shopping</a>
+        </div>
+    </div>
+{% endblock %}

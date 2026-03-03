@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupta Cloth House - Premium Ethnic Wear</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- 1. LARGE ANIMATED HEADER TOP -->
+    <header>
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i> Mode</button>
+        <div class="logo-container animate-down">
+            <div class="shop-logo">
+                <span class="logo-text">GUPTA CLOTH HOUSE</span>
+                <span class="logo-tagline">PREMIUM ETHNIC WEAR</span>
+            </div>
+        </div>
+        <div class="header-contact animate-up">
+            <span class="owner-name"><i class="fas fa-user-tie"></i> Hitender Kumar Gupta</span><br>
+            <i class="fas fa-phone-alt"></i> 9816045071 | 8580400234
+        </div>
+    </header>
+
+    <!-- 2. STICKY NAVIGATION -->
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/category/Ladies Suite">LADIES SUITS</a>
+        <a href="/category/Sarees">SAREES</a>
+        <a href="/category/Men Night Suite">MEN'S NIGHTWEAR</a>
+        <a href="/category/Winter Wear">WINTER WEAR</a>
+        <a href="/category/Pooja Cloths">POOJA CLOTHS</a>
+        <a href="/contact">LOCATION</a>
+        <a href="/cart" style="color: var(--primary);"><i class="fas fa-shopping-bag"></i> CART ({{ session.get('cart', [])|length }})</a>
+        <a href="/admin" class="nav-camera" title="Add Photo">
+            <i class="fas fa-camera"></i> <span>ADD PHOTO</span>
+        </a>
+    </nav>
+
+    <!-- Dynamic Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 3. FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3 class="serif-font">Gupta Cloth House</h3>
+                <p>Premium destination for Ladies Suits, Sarees, Men's Nightwear, Winter Wear, Pooja Cloths, and high-quality Towels.</p>
+                <p style="margin-top: 15px; font-style: italic; color: var(--secondary);">Since 2026 | Near HP Gramin Bank, Diargi.</p>
+            </div>
+            <div class="footer-col">
+                <h3 class="serif-font">Quick Links</h3>
+                <p><i class="fas fa-map-marker-alt"></i> VPO Diargi, Tehsil Balh</p>
+                <p><i class="fas fa-phone"></i> +91 9816045071</p>
+                <p><i class="fas fa-phone"></i> +91 8580400234</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Gupta Cloth House. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        const icon = document.querySelector('.theme-toggle i');
+        if(icon) icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    </script>
+</body>
+</html>

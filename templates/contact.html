@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="max-width: 900px;">
+        <h2 class="section-title">Our Store Location</h2>
+        <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-light); font-size: 1.1rem; letter-spacing: 1px;">Visit us at VPO Diargi, Tehsil Balh (Mandi, HP)</p>
+        
+        <div style="background: var(--card-bg); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow-strong); margin-top: 2rem; border-top: 5px solid var(--secondary);">
+            <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; margin-bottom: 3.5rem; text-align: center; justify-content: center;">
+                <div style="flex: 1; min-width: 280px; padding: 1rem; background: rgba(128, 0, 0, 0.03); border-radius: 8px;">
+                    <h3 class="serif-font" style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem;">Store Details</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 10px; color: var(--primary);"><i class="fas fa-user-tie" style="color: var(--secondary);"></i> <strong>Hitender Kumar Gupta</strong></p>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px; color: var(--text);"><i class="fas fa-phone-alt" style="color: var(--secondary);"></i> 9816045071</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px; color: var(--text);"><i class="fas fa-phone-alt" style="color: var(--secondary);"></i> 8580400234</p>
+                </div>
+                <div style="flex: 1; min-width: 280px; padding: 1rem; background: rgba(128, 0, 0, 0.03); border-radius: 8px;">
+                    <h3 class="serif-font" style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem;">Address</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text);">
+                        <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i> VPO Diargi, Tehsil Balh<br>
+                        District Mandi, Himachal Pradesh<br>
+                        <span style="color: var(--primary); font-weight: 600;">Landmark: Near HP Gramin Bank</span>
+                    </p>
+                </div>
+            </div>
+
+            <div style="width: 100%; height: 500px; border-radius: var(--radius); overflow: hidden; border: 3px solid var(--secondary); box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13587.218683501066!2d76.9400494!3d31.5432655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3904e5d666666667%3A0x6666666666666666!2sHimachal%20Pradesh%20Gramin%20Bank!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}

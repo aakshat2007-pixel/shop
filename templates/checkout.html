@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<style>
+    .checkout-container { background: var(--card-bg); padding: 3rem; border-radius: var(--radius); box-shadow: var(--shadow-strong); max-width: 800px; margin: 0 auto; }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+    .form-control { width: 100%; padding: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; background: var(--bg); color: var(--text); font-family: inherit; font-size: 1rem; transition: var(--transition); }
+    [data-theme="dark"] .form-control { border-color: rgba(255,255,255,0.1); }
+    .form-control:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); }
+    .order-summary { background: var(--bg); padding: 2rem; border-radius: 8px; margin-bottom: 2rem; border-left: 5px solid var(--secondary); text-align: center; }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="checkout-container">
+            <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Secure Checkout</h2>
+            
+            <div class="order-summary">
+                <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px;">Amount to Pay on Delivery</h3>
+                <div style="font-size: 3.5rem; font-family: 'Playfair Display', serif; font-weight: 900; color: var(--primary);">₹{{ total }}</div>
+            </div>
+
+            <form action="{{ url_for('checkout') }}" method="POST">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" class="form-control" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" class="form-control" required placeholder="10-digit mobile number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea name="address" class="form-control" rows="3" required placeholder="House No, Village/VPO, Nearby Landmark (e.g., Near Gramin Bank)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Special Notes (Optional)</label>
+                    <input type="text" name="notes" class="form-control" placeholder="Any specific size or color requests?">
+                </div>
+                
+                <div style="background: rgba(212, 175, 55, 0.1); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; text-align: center; color: var(--primary); font-weight: 700; font-size: 1.1rem; border: 1px dashed var(--secondary);">
+                    <i class="fas fa-money-bill-wave"></i> Payment Method: Cash on Delivery (COD) Only
+                </div>
+
+                <button type="submit" class="btn" style="font-size: 1.3rem; padding: 20px;"><i class="fas fa-check-circle"></i> Confirm Order</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

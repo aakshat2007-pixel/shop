@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable Shop Poster - Gupta Cloth House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Montserrat:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f4;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .poster {
+            width: 600px;
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 15px solid #800000;
+            position: relative;
+        }
+
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 2px solid #D4AF37;
+            pointer-events: none;
+        }
+
+        .shop-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #800000;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #D4AF37;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .qr-section {
+            margin: 50px 0;
+            padding: 30px;
+            background: #fdf5f5;
+            border-radius: 15px;
+            border: 2px dashed #D4AF37;
+            display: inline-block;
+        }
+
+        .qr-image {
+            width: 300px;
+            height: 300px;
+            border: 5px solid white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .scan-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #800000;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .owner-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #800000;
+            margin-bottom: 10px;
+        }
+
+        .address {
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #800000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        @media print {
+            .print-btn { display: none; }
+            body { background: white; padding: 0; }
+            .poster { box-shadow: none; border-width: 10px; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <h1 class="shop-name">GUPTA</h1>
+        <h2 class="shop-name" style="font-size: 2.5rem; margin-top: -10px;">CLOTH HOUSE</h2>
+        <div class="tagline">PREMIUM ETHNIC WEAR</div>
+
+        <div class="qr-section">
+            <img src="/qr_code" class="qr-image" alt="Shop QR Code">
+            <div class="scan-text"><i class="fas fa-mobile-alt"></i> SCAN TO SHOP ONLINE</div>
+            <p style="margin-top: 10px; color: #666; font-weight: 700;">Cash on Delivery Available</p>
+        </div>
+
+        <div class="contact-info">
+            <div class="owner-name">Owner: Hitender Kumar Gupta</div>
+            <div><i class="fas fa-phone-alt"></i> 9816045071 | 8580400234</div>
+            <div class="address">
+                <i class="fas fa-map-marker-alt"></i> VPO Diargi, Tehsil Balh, Mandi (HP)<br>
+                (Near Himachal Pradesh Gramin Bank)
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> PRINT POSTER FOR SHOP</button>
+</body>
+</html>

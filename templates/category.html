@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="section-title">{{ category|upper }} COLLECTION</h2>
+        <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-light); font-size: 1.1rem; letter-spacing: 1px;">Premium Stock - Gupta Cloth House</p>
+        
+        <div class="product-grid">
+            {% if products %}
+                {% for product in products %}
+                <div class="product-card">
+                    <div class="img-container">
+                        <span class="category-badge">{{ product.category }}</span>
+                        <img src="{{ url_for('static', filename='images/' + product.image) }}" class="product-img" onerror="this.src='https://placehold.co/400x400/800000/ffffff?text={{ category }}'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                        <p class="product-price">₹{{ product.price }}</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ product.description }}</p>
+                        <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div style="text-align: center; width: 100%; grid-column: 1 / -1; padding: 5rem 2rem; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow-soft); border-top: 5px solid var(--secondary);">
+                    <i class="fas fa-box-open" style="font-size: 4rem; color: var(--secondary); margin-bottom: 1.5rem;"></i>
+                    <h3 class="serif-font" style="font-size: 2rem; color: var(--primary);">New Stock Coming Soon!</h3>
+                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 1.1rem;">We haven't added products to the <b>{{ category }}</b> section online yet.</p>
+                    <br>
+                    <a href="/admin" class="btn" style="width: auto; background: var(--secondary); color: var(--primary);"><i class="fas fa-camera"></i> Click to Upload {{ category }} Photo</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- PROMOTIONAL SECTION ON CATEGORY PAGE TOO -->
+    <div style="background: linear-gradient(rgba(128, 0, 0, 0.9), rgba(128, 0, 0, 0.9)), url('https://www.transparenttextures.com/patterns/stardust.png'); color: white; padding: 4rem 2rem; text-align: center; margin-top: 5rem;">
+        <h2 class="serif-font" style="font-size: 2.2rem; color: var(--secondary); margin-bottom: 1rem;">Visit Us for More {{ category }}</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Experience our full variety at VPO Diargi, Tehsil Balh.</p>
+        <a href="/contact" class="btn" style="background: white; color: var(--primary);">View Store Map</a>
+    </div>
+{% endblock %}
